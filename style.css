@@ -1,0 +1,219 @@
+@font-face {
+    font-family: 'mabry';
+    src: url('./assets/mabry.otf') format('opentype');
+    font-weight: 300;
+}
+
+:root {
+    --alpha: rgba(0, 0, 0, 0.08);
+    --font: 'mabry', sans-serif;
+    --spacer: 64px;
+    --bg: #EBE6DF;
+    --fg: #000;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+    font-family: var(--font);
+    text-decoration: none;
+    outline: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-family: var(--font);
+    background: var(--bg);
+    overflow: hidden;
+    color: var(--fg);
+    height: 100vh;
+}
+
+.logo {
+    pointer-events: none;
+    width: 120px;
+    margin: -2px;
+}
+
+.hero {
+    border: 1px solid var(--alpha);
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: column;
+    inset: var(--spacer);
+    overflow: visible;
+    position: fixed;
+    display: flex;
+    &:before {
+        border-right: 1px solid var(--alpha);
+        border-left: 1px solid var(--alpha);
+        height: var(--spacer);
+        right: var(--spacer);
+        left: var(--spacer);
+        position: fixed;
+        content: '';
+        top: 0;
+    }
+    &:after {
+        border-right: 1px solid var(--alpha);
+        border-left: 1px solid var(--alpha);
+        height: var(--spacer);
+        right: var(--spacer);
+        left: var(--spacer);
+        position: fixed;
+        content: '';
+        bottom: 0;
+    }
+}
+
+.header {
+    border-bottom: 1px solid var(--alpha);
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    height: 38px;
+    width: 100%;
+    &:before {
+        border-bottom: 1px solid var(--alpha);
+        border-top: 1px solid var(--alpha);
+        width: var(--spacer);
+        top: var(--spacer);
+        position: fixed;
+        height: 39px;
+        content: '';
+        left: 0;
+    }
+    &:after {
+        border-bottom: 1px solid var(--alpha);
+        border-top: 1px solid var(--alpha);
+        width: var(--spacer);
+        top: var(--spacer);
+        position: fixed;
+        height: 39px;
+        content: '';
+        right: 0;
+    }
+}
+
+.footer {
+    border-top: 1px solid var(--alpha);
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    height: 45px;
+    width: 100%;
+    &:before {
+        border-bottom: 1px solid var(--alpha);
+        border-top: 1px solid var(--alpha);
+        bottom: var(--spacer);
+        width: var(--spacer);
+        position: fixed;
+        height: 46px;
+        content: '';
+        left: 0;
+    }
+    &:after {
+        border-bottom: 1px solid var(--alpha);
+        border-top: 1px solid var(--alpha);
+        bottom: var(--spacer);
+        width: var(--spacer);
+        position: fixed;
+        height: 46px;
+        content: '';
+        right: 0;
+    }
+}
+
+.info {
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-top: 2px;
+    display: flex;
+    gap: 6px;
+}
+
+.main {
+    border-right: 1px solid var(--alpha);
+    justify-content: center;
+    flex-direction: column;
+    pointer-events: none;
+    align-items: center;
+    left: var(--spacer);
+    position: fixed;
+    display: flex;
+    bottom: 0;
+    top: 0;
+}
+
+h1 {
+    font-size: var(--spacer);
+    letter-spacing: -2.5px;
+    margin-left: -7px;
+    font-weight: 300;
+    max-width: 578px;
+    line-height: 1.1;
+    width: 100%;
+}
+
+p {
+    opacity: 0.5;
+}
+
+button {
+    box-shadow: 0 20px var(--spacer) -5px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s cubic-bezier(0.25, 1.5, 0.5, 1);
+    justify-content: space-between;
+    background-color: var(--fg);
+    letter-spacing: -0.4px;
+    align-items: center;
+    border-radius: 12px;
+    padding: 14px 20px;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    margin: -2px;
+    width: 260px;
+    color: #fff;
+    gap: 12px;
+    &:hover { transform: scale(1.02); }
+    &:active { transform: scale(0.98); }
+}
+
+.icon {
+    width: 16px;
+}
+
+.email {
+    width: 184px;
+}
+
+@media (max-width: 700px) {
+
+    :root {
+        --spacer: 32px;
+    }
+    
+    h1 {
+        letter-spacing: -2px;
+        font-size: 48px;
+    }
+    
+    button {
+        width: 102%;
+    }
+
+    .main {
+        right: var(--spacer);
+        border-right: none;
+    }
+    
+}
