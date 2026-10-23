@@ -217,3 +217,154 @@ button {
     }
     
 }
+
+.logo-link {
+    display: block;
+    line-height: 0;
+}
+
+.logo-link:focus-visible,
+.legal a:focus-visible,
+.content a:focus-visible {
+    outline: 1px solid var(--fg);
+    outline-offset: 3px;
+}
+
+.legal {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.legal a {
+    color: var(--fg);
+    opacity: 0.5;
+    font-size: 15px;
+    letter-spacing: -0.3px;
+    white-space: nowrap;
+    transition: opacity 0.2s ease;
+}
+
+.legal a:hover,
+.legal a[aria-current="page"] {
+    opacity: 1;
+}
+
+body.doc .header,
+body.doc .footer {
+    flex-shrink: 0;
+}
+
+body.doc .hero {
+    overflow: visible;
+}
+
+body.doc .content {
+    flex: 1;
+    align-self: stretch;
+    min-height: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 40px 32px 56px 0;
+    font-weight: 300;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.25) transparent;
+}
+
+body.doc .content > * + * {
+    margin-top: 12px;
+}
+
+body.doc .content > .kicker + h1 {
+    margin-top: 8px;
+}
+
+body.doc .content > * + h2 {
+    margin-top: 32px;
+}
+
+body.doc .content h1 {
+    margin-left: 0;
+}
+
+body.doc .content h2 {
+    font-size: 22px;
+    font-weight: 300;
+    letter-spacing: -0.6px;
+    line-height: 1.25;
+    max-width: 576px;
+}
+
+body.doc .content :where(p, li, address) {
+    max-width: 576px;
+    opacity: 1;
+    font-size: 18px;
+    line-height: 1.45;
+    letter-spacing: -0.2px;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+body.doc .content :where(.kicker, .meta) {
+    font-size: 14px;
+    line-height: 1.4;
+    letter-spacing: -0.2px;
+    color: var(--fg);
+    opacity: 0.5;
+}
+
+body.doc .content address {
+    font-style: normal;
+}
+
+body.doc .content ul {
+    padding-left: 1.15em;
+}
+
+body.doc .content a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 1px;
+}
+
+body.doc .content a:hover {
+    color: var(--fg);
+}
+
+@media (max-width: 840px) {
+    .footer {
+        position: relative;
+        height: auto;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+        padding-top: 14px;
+    }
+
+    .footer:before,
+    .footer:after {
+        position: absolute;
+        height: calc(100% + 1px);
+        bottom: -1px;
+    }
+
+    .footer:before {
+        left: calc(var(--spacer) * -1);
+    }
+
+    .footer:after {
+        right: calc(var(--spacer) * -1);
+    }
+
+    .legal {
+        order: 1;
+    }
+
+    #copyButton {
+        order: 2;
+    }
+
+    body.doc .content {
+        padding: 28px 0 40px;
+    }
+}
